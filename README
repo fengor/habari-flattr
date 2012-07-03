@@ -1,0 +1,22 @@
+A flattr plugin for the habari blog
+===================================
+
+Purpose
+-------
+
+Automatically add flattr buttons to blog posts
+
+Features
+--------
+  * Can automatically add autosubmit link at end of post
+  * Can be used inside a theme
+  * Configurable large or small icon
+
+To be implemented
+-----------------
+  Attributes of links
+  * categories
+  * tags
+  * language
+  * description
+  * hidden
