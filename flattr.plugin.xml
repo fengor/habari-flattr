@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pluggable type="plugin">
+	<name>Flattr</name>
+	<version>0.1</version>
+	<url>http://fengors-realm.de/habari/flattr-plugin</url>
+	<author url="http://fengors-realm.de">fengor</author>
+	<license url="http://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</license>
+	<description>Adds a flattr button to your posts</description>
+</pluggable>
