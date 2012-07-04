@@ -12,6 +12,7 @@ Features
   * Can be used inside a theme
   * Configurable large or small icon
   * Tags of the post are automatically added as tags to the flattr
+  * Plugin can be configured to hide flattrs from public listing
 
 To be implemented
 -----------------
@@ -19,4 +20,3 @@ To be implemented
   * categories
   * language
   * description
-  * hidden

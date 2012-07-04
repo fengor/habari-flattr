@@ -15,6 +15,7 @@ class Flattr extends Plugin {
 		if ( Plugins::id_from_file( $file ) != Plugins::id_from_file( __FILE__ ) ) return;
 
 		Options::set('flattr__add_button','true');
+		Options::set('flattr__set_hidden','0');
 	}
 
 	public function action_plugin_ui($plugin_id,$action) {
@@ -25,6 +26,8 @@ class Flattr extends Plugin {
 			$flattr_uid = $ui->append('text','flattr_uid','flattr__uid',_t('Flattr username: '));
 			$large_icon = $ui->append('select','large_icon','option:flattr__large_icon',_t('Show large image'));
 			$large_icon->options = array('true'=>'Large Image','fals'=>'Small Image');
+			$set_hidden = $ui->append('select','set_hidden','option:flattr__set_hidden',_t('Hide flattr from public listing'));
+			$set_hidden->options = array('0'=>'Show flattr','1'=>'Hide flattr');
 			$add_button = $ui->append('select','add_button','option:flattr__add_button',_t('Auto Insert: '));
 			$add_button->options = array('true'=>'True','false'=>'False');
 			
@@ -59,6 +62,7 @@ class Flattr extends Plugin {
 		$site_title = Options::get('title');
 		$flattr_uid = Options::get('flattr__uid');
 		$show_large = Options::get('flattr__large_icon');
+		$hide_flattr = Options::get('flattr__set_hidden');
 
 		$flattr_tags = '';
 		$tags = $post->tags;
@@ -78,7 +82,7 @@ class Flattr extends Plugin {
 		}
 
 		$link .= '<a href="https://flattr.com/submit/auto?user_id='.$flattr_uid.'&url='.urlencode($post->permalink).'&title='.urlencode($site_title.' - '.$post->title_out);
-		$link .= '&tags='.urlencode($flattr_tags);
+		$link .= '&tags='.urlencode($flattr_tags).'&hidden='.urlencode($hide_flattr);
 		$link .= '"><img src="'.$img_url.'" /></a>';
 		$link .= '</div>';
 		
