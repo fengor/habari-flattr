@@ -60,6 +60,16 @@ class Flattr extends Plugin {
 		$flattr_uid = Options::get('flattr__uid');
 		$show_large = Options::get('flattr__large_icon');
 
+		$flattr_tags = '';
+		$tags = $post->tags;
+		foreach($tags as $tag) {
+			if ($flattr_tags) {
+				$flattr_tags .= ','.$tag;
+			} else {
+				$flattr_tags .= $tag;
+			}
+		}
+
 		$img_url = '';
 		if ($show_large == 'true') {
 			$img_url='https://api.flattr.com/button/flattr-badge-large.png';
@@ -67,8 +77,9 @@ class Flattr extends Plugin {
 			$img_url='https://flattr.com/_img/icons/flattr_logo_16.png';
 		}
 
-		$link .= '<a href="https://flattr.com/submit/auto?user_id='.$flattr_uid.'&url='.urlencode($post->permalink).'&title='.urlencode($site_title.' - '.$post->title_out).'">';
-		$link .= '<img src="'.$img_url.'" /></a>';
+		$link .= '<a href="https://flattr.com/submit/auto?user_id='.$flattr_uid.'&url='.urlencode($post->permalink).'&title='.urlencode($site_title.' - '.$post->title_out);
+		$link .= '&tags='.urlencode($flattr_tags);
+		$link .= '"><img src="'.$img_url.'" /></a>';
 		$link .= '</div>';
 		
 		return $link;

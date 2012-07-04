@@ -11,12 +11,12 @@ Features
   * Can automatically add autosubmit link at end of post
   * Can be used inside a theme
   * Configurable large or small icon
+  * Tags of the post are automatically added as tags to the flattr
 
 To be implemented
 -----------------
   Attributes of links
   * categories
-  * tags
   * language
   * description
   * hidden
